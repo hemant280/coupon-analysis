@@ -1,5 +1,6 @@
 # Assignment 5.1: Will the Customer Accept the Coupon?
 
+[Juypter Notebook](https://github.com/hemant280/coupon-analysis/blob/main/analysis.ipynb).
 ## Introduction
 
 In this assignment, we will be working with a dataset from the UCI Machine Learning repository and was collected via a survey on Amazon Mechanical Turk. 
@@ -14,6 +15,8 @@ Then the user is asked whether he will accept the coupon if he is the driver, th
  -  Right away 
  -  Later before the coupon expires 
  -  No, I do not want the coupon
+
+I am new to Working working on data sciene project, while researching I came across a blog post on Medium about similar study. My analysis approach is inspired by the the [blog](https://medium.com/@niralidedaniya/in-vehicle-coupon-recommendation-a-machine-learning-classification-case-study-df67e7835703) post on Medium. 
 
 ## Objective
 The goal of this project is to use what you know about visualizations and probability distributions to distinguish between customers who accepted a driving coupon versus those who did not.
@@ -151,3 +154,66 @@ memory usage: 2.5+ MB
     - People with occupations other than farming, fishing, or forestry have higher acceptance rate compared to others.
     - Non-widowed people have higher acceptance rate compared to widowed ones.
     - Drivers who go to cheap restaurants more than 4 times a month and income is less than 50K have lower acceptance rate compared to others.
+
+
+
+
+### Independent Investigation
+
+Using the bar coupon example as motivation, you are to explore one of the other coupon groups and try to determine the characteristics of passengers who accept the coupons.  
+
+### High Level Approach to analyse data for drivers accepting copons:
+1. Determine coupons other than Bar are popular  
+2. Analyize the data and to determine charatersitics of driver accepting popular coupon
+#### Goal:
+1. Understand and characteristics of coupon whos acceptance rate is high
+### Approach
+1. Determine which coupon acceptance rate is high
+    - Group the data for all coupon types which are not Bar
+2. Clean data
+    - Remove duplicates
+    - Remove records for non-drivers 
+    - Drop column car 
+    - Drop rows with NaN or Null values 
+3. Identify the coupon acceptance rate
+    - Calculate acceptance rate by different attributes like time of day, destination etc.
+    - Plot acceptance rate by different attributes to visualize the acceptance rate
+4. Draw conclusions from analysis
+5. Present findings in report or presentation in markdown format
+
+### NonBar coupon acceptance rate
+    - The coupon with lowest acceptance rate 'Restaurant(<20)'
+    - The coupon with highest acceptance rate  'Carry out & Take away'
+!["Coupon Acceptance Rate"](./images/coupon_acceptance_rate.png)
+
+#### Analyize Highest Acceptance Rate Coupons:
+- Visvalize Highest Acceptance rate coupons: 
+    - Age of Driver
+    - Income of Driver
+    - Education
+    - Driving with Passanger
+    - Weather
+
+#### Visualization
+
+- **Age of Driver**
+!["Age of Driver"](./images/coupon_acceptance_rate_by_age.png) 
+- **Income of Driver**
+!["Income of Driver"](./images/coupon_acceptance_rate_by_income.png) 
+- **Education**
+!["Income of Driver"](./images/coupon_acceptance_rate_by_education.png) 
+- **Driving with Passanger**
+!["Income of Driver"](./images/coupon_acceptance_rate_by_passanger.png)
+- **Wather**
+!["Income of Driver"](./images/coupon_acceptance_rate_by_weather.png) 
+
+### Observation
+#### The coupon with highest acceptance rate is **Carry out & Take away**
+    1. Age is a significant factor in the acceptance of the coupon Carry out & Take away. Drivers in the range of 21-26 most likely accept this coupon. 
+    2. The income another significant factor in the acceptance of Carry out & Take away coupon. Drivers with income less than $37,500 have lower acceptance rate compared to others.
+    3. Education plays a key factor in the acceptance of Carry out & Take away coupon. Drivers with less than high school education have lower acceptance rate compared to others
+    4. If a driver is travaling alone the acceptance of Carry out & Take away coupon is higher with friends or family members
+    5. Weatherher also plays a key role in the acceptance of Carry out & Take away coupon. Drivers are more likely to accept coupons on clear weather compared to other weather conditions
+
+#### Referance
+  A. Medium blog post: https://medium.com/@niralidedaniya/in-vehicle-coupon-recommendation-a-machine-learning-classification-case-study-df67e7835703
